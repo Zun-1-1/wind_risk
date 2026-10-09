@@ -3,19 +3,20 @@
 ----------------------------------------------------------------------------------------------------
 ## Using Mamba to download datasets:
 
-$wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+```bash
 
-Then 
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
 
-$bash Miniforge3-Linux-x86_64.sh
+bash Miniforge3-Linux-x86_64.sh
 
-$source ~/miniforge3/bin/activate
+source ~/miniforge3/bin/activate
 
-$mamba create -n download_data
+mamba create -n download_data
 
-$conda activate download_data
+conda activate download_data
+```
 
-Follow instructions on: https://cds.climate.copernicus.eu/how-to-api
+Then follow instructions on https://cds.climate.copernicus.eu/how-to-api on how to download CDS data.
 
 ---------------------------------------------------------------------------------------------------
 ## Hindcasts from Copernicus are downloaded, from the climate data store
@@ -37,10 +38,9 @@ Data is therefore present from September - March.
 ERA5 is downloaded from 1980 - 2026 present, to match the timescale of the hindcasts.
 
 ---------------------------------------------------------------------------------------------------
-##Tracking extratropical cyclones
+## Tracking extratropical cyclones
 
 Data needed: sea level pressure
-
 
 
 ----------------------------------------------------------------------------------------------------

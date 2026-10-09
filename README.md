@@ -37,11 +37,22 @@ Data is therefore present from September - March.
 
 ERA5 is downloaded from 1980 - 2026 present, to match the timescale of the hindcasts.
 
+--------------------------------------------------------------------------------------------------
+## Packages to download
+
+```bash
+mamba install xarray dask matplotlib scipy shapely pyproj netcdf4 numba cmcrameri numpy
+```
+
 ---------------------------------------------------------------------------------------------------
 ## Tracking extratropical cyclones
 
-Data needed: sea level pressure
+Variables: sea level pressure
 
+---------------------------------------------------------------------------------------------------
+## Calculating the SSI index
+
+Variables: ERA5 max 10m wind gust (to estimate wind gusts), horizontal winds at 10m
 
 ----------------------------------------------------------------------------------------------------
 ## Useful links and references

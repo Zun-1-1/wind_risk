@@ -13,7 +13,7 @@ source ~/miniforge3/bin/activate
 
 mamba create -n download_data
 
-conda activate download_data
+mamba activate download_data
 ```
 
 Then follow instructions on https://cds.climate.copernicus.eu/how-to-api on how to download CDS data.
@@ -30,7 +30,7 @@ Grid spacing: 1 x 1 degree (to match the resolution of hindcast data)
 Forecasting systems: ECMWF SEAS5 C3Sv5.1, Meteo-France System9, UKMO GloSea6, NCEP CFSv2,
 ECCC CanESM5.1p1bc System 4, ECCC GEM5.2-NEMO System 5, BOM ACCESS-S2 System 2
 
-Area selection: 90N - 0S, -110W - 60E
+Area selection: 90N - 0S, -130W - 60E
 
 Hindcasts that are run for 7 months are downloaded that are initalised in September.
 Data is therefore present from September - March.
@@ -41,13 +41,36 @@ ERA5 is downloaded from 1980 - 2026 present, to match the timescale of the hindc
 ## Packages to download
 
 ```bash
-mamba install xarray dask matplotlib scipy shapely pyproj netcdf4 numba cmcrameri numpy
+mamba install xarray dask matplotlib scipy shapely pyproj netcdf4 numba cmcrameri numpy ipykernel cartopy
+python -m ipykernel install --user --name=<name_of_environment>
+conda install -c conda-forge tempest-extremes
+
 ```
 
 ---------------------------------------------------------------------------------------------------
-## Tracking extratropical cyclones
+## Tracking extratropical cyclones (ETC)
 
 Variables: sea level pressure
+
+Download the TempestExtremes package 
+
+### Criteria for tracking ETC:
+
+As in [Ullrich et al 2021](https://gmd.copernicus.org/articles/14/5023/2021/#bib1.bibx90):
+* Min pressure encloses a contour of 200hPa within 6.0 degree of cyclone center.
+* Min pressures within 6.0 degrees of each other are merged.
+* Storms need to persist for min 60 hours.
+* Max gap between detections 18h.
+* Track needs to overlap 24 - 52 degree N and 234 - 294 E
+* Tracks must move at least 12 Great Circle Distances
+
+### For ERA5 dataset
+1. Change the file directories inside ERA5_cyclone_tracking.sh, to where the correct file inputs are / outputs should be.
+2. Run:
+```bash
+./ERA5_cyclone_tracking.sh
+```
+
 
 ---------------------------------------------------------------------------------------------------
 ## Calculating the SSI index
@@ -59,8 +82,7 @@ Variables: ERA5 max 10m wind gust (to estimate wind gusts), horizontal winds at 
 
 Tracking is done through the TempestExtremes package, following the method in:
 
-[Zarzycki CM. Projecting changes in societally impactful northeastern US snowstorms. 
-Geophysical Research Letters. 2018 Nov 16;45(21):12-067.](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018GL079820)
+[Zarzycki CM. Projecting changes in societally impactful northeastern US snowstorms. Geophysical Research Letters. 2018 Nov 16;45(21):12-067.](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018GL079820)
 
 TempestExtremes package is explained in:
 

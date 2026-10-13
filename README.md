@@ -9,19 +9,28 @@
 
 - **src/windrisk/** - Python package with reusable function.
 
+- **Data_processing/** - Makes hindcast data compatable with the TempestExtremes code
+
 ```text
 wind_risk
  ├── Bash_scripts
  │   └── ERA5_cyclone_tracking.sh
+ ├── Data_processing
+ │   └── preprocess_data.py
  ├── Jupyter_notebook_scripts
  │   ├── open_cyclone_tracks.ipynb
+ │   ├── open_cyclone_footpath.ipynb
  │   └── open_dataset_files.ipynb
  ├── src
- │   └──  windrisk/
+ │   └── windrisk
+ │       ├── __init__.py
+ │       └── loading_data.py
  ├── LICENSE
  ├── .gitignore
  └── README.md
 ```
+----------------------------------------------------------------------------------------------------
+#                                   Downloading climate data
 ----------------------------------------------------------------------------------------------------
 ## Using Mamba to download datasets:
 
@@ -69,6 +78,9 @@ Data is therefore present from September - March.
 ERA5 is downloaded from 1980 - 2026 present, to match the timescale of the hindcasts.
 
 --------------------------------------------------------------------------------------------------
+#                                   Analysing data
+--------------------------------------------------------------------------------------------------
+
 ## Packages to download
 
 ```bash
@@ -101,6 +113,24 @@ As in [Ullrich et al 2021](https://gmd.copernicus.org/articles/14/5023/2021/#bib
 ./Bash_scripts/ERA5_cyclone_tracking.sh
 ```
 
+### Track extratropical cyclones in hindcast datasets
+
+1. Change file names, start dates and run Data_processing/preprocess_data.py to change dataset format for compatability
+with the TempestExtreme dataset
+```bash
+python preprocess_data.py > preprocess_data.out
+```
+
+2. Change number of ensembles in  ensemble_cyclone_tracking.sh, filenames and start dates
+```bash
+./Bash_scripts/ensemble_cyclone_tracking.sh
+```
+
+_Step 2 takes about ~1.3 hours to run one year of an ensemble hindcast_
+
+### Calculating the footprint of the cyclone
+
+The footprint is found by applying a 5° Great Circle Distance from the center of the cyclone, using NodeFileFilter, from the TempestExtremes package.
 
 ---------------------------------------------------------------------------------------------------
 ## Calculating the SSI index

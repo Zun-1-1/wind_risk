@@ -3,7 +3,7 @@
 #MSLP needs to be in Pa, not in hPa for this code
 data_path="/uolstore/RIT/RITCore/Env/p0103/eewo/ERA5/MSLP/"
 node_path="/uolstore/RIT/RITCore/Env/p0103/eewo/ERA5/cyclone_detect_nodes/"
-track_path="/uolstore/RIT/RITCore/Env/p0103/eewo/ERA5/cyclone_tracks"
+track_path="/uolstore/RIT/RITCore/Env/p0103/eewo/ERA5/cyclone_tracks/"
 
 
 for year in {1980..2025}; do

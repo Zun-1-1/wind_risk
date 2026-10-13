@@ -1,6 +1,25 @@
 # Wind Risk
 
 ----------------------------------------------------------------------------------------------------
+# Files
+
+### For running tempest extremes use wind_risk/Bash_scripts
+
+### For looking at datasets, use Jupyter_notebook_scripts
+
+wind_risk
+ ├── Bash_scripts
+ │   ├── ERA5_cyclone_tracking.sh
+ ├── Jupyter_notebook_scripts
+ │   ├── open_cyclone_tracks.ipynb
+ │   └── open_dataset_files.ipynb
+ ├── src
+ │   └──  windrisk/
+ ├── LICENSE
+ ├── .gitignore
+ └── README.md
+
+----------------------------------------------------------------------------------------------------
 ## Using Mamba to download datasets:
 
 ```bash
@@ -74,6 +93,8 @@ As in [Ullrich et al 2021](https://gmd.copernicus.org/articles/14/5023/2021/#bib
 
 ---------------------------------------------------------------------------------------------------
 ## Calculating the SSI index
+
+$$ SSI = \sqrt[3]{\frac{\sum_{i \epsilon \Omega_0 } (v_i - v_0)^3 A_i}{\sum_{i \epsilon \Omega}A_j}} $$
 
 Variables: ERA5 max 10m wind gust (to estimate wind gusts), horizontal winds at 10m
 

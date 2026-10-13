@@ -6,7 +6,7 @@ node_path="/uolstore/RIT/RITCore/Env/p0103/eewo/ERA5/cyclone_detect_nodes/"
 track_path="/uolstore/RIT/RITCore/Env/p0103/eewo/ERA5/cyclone_tracks"
 
 
-for year in {1980..1985}; do
+for year in {1980..2025}; do
   next_year=$((year+1))
   extended_winter=(
     "${year}_09" 

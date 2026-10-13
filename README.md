@@ -1,13 +1,13 @@
 # Wind Risk
 
 ----------------------------------------------------------------------------------------------------
-# Files
+## Files in this repository
 
--**Bash_scripts/** - Scripts for running TempestExtremes.
+- **Bash_scripts/** - Scripts for running TempestExtremes.
 
--**Jupyter_notebook_scripts/** — Notebooks for inspecting datasets.
+- **Jupyter_notebook_scripts/** — Notebooks for inspecting datasets.
 
--**src/windrisk/** - Python package with reusable function.
+- **src/windrisk/** - Python package with reusable function.
 
 ```text
 wind_risk
@@ -49,8 +49,17 @@ Time : Every 6 hours, at 00:00, 06:00, 12:00 and 18:00
 
 Grid spacing: 1 x 1 degree (to match the resolution of hindcast data)
 
-Forecasting systems: ECMWF SEAS5 C3Sv5.1, Meteo-France System9, UKMO GloSea6, NCEP CFSv2,
-ECCC CanESM5.1p1bc System 4, ECCC GEM5.2-NEMO System 5, BOM ACCESS-S2 System 2
+Hindcasts used:
+
+Forecasting System                 | Number of ensemble memberes
+-----------------------------------| -----------------------------
+ECMWF SEAS5 C3Sv5.1,               | 25
+Meteo-France System9               | 31
+UKMO GloSea6                       | 28
+NCEP CFSv2                         | 30
+ECCC CanESM5.1p1bc System 4        | 20
+ECCC GEM5.2-NEMO System 5          | 20
+BOM ACCESS-S2 System 2             | 27
 
 Area selection: 90N - 0S, -130W - 60E
 
@@ -68,13 +77,12 @@ python -m ipykernel install --user --name=<name_of_environment>
 conda install -c conda-forge tempest-extremes
 
 ```
-
 ---------------------------------------------------------------------------------------------------
 ## Tracking extratropical cyclones (ETC)
 
-Variables: sea level pressure
+Variables: (mean) sea level pressure
 
-Download the TempestExtremes package 
+Download the TempestExtremes package (see section above)
 
 ### Criteria for tracking ETC:
 
@@ -86,11 +94,11 @@ As in [Ullrich et al 2021](https://gmd.copernicus.org/articles/14/5023/2021/#bib
 * Track needs to overlap 24 - 52 degree N and 234 - 294 E
 * Tracks must move at least 12 Great Circle Distances
 
-### For ERA5 dataset
+### Track extratropical cyclones in ERA5 dataset
 1. Change the file directories inside ERA5_cyclone_tracking.sh, to where the correct file inputs are / outputs should be.
 2. Run:
 ```bash
-./ERA5_cyclone_tracking.sh
+./Bash_scripts/ERA5_cyclone_tracking.sh
 ```
 
 

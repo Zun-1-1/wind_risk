@@ -12,7 +12,7 @@
 ```text
 wind_risk
  ├── Bash_scripts
- │   ├── ERA5_cyclone_tracking.sh
+ │   └── ERA5_cyclone_tracking.sh
  ├── Jupyter_notebook_scripts
  │   ├── open_cyclone_tracks.ipynb
  │   └── open_dataset_files.ipynb

@@ -3,10 +3,13 @@
 ----------------------------------------------------------------------------------------------------
 # Files
 
-### For running tempest extremes use wind_risk/Bash_scripts
+-**Bash_scripts/** - Scripts for running TempestExtremes.
 
-### For looking at datasets, use Jupyter_notebook_scripts
+-**Jupyter_notebook_scripts/** — Notebooks for inspecting datasets.
 
+-**src/windrisk/** - Python package with reusable function.
+
+```text
 wind_risk
  ├── Bash_scripts
  │   ├── ERA5_cyclone_tracking.sh
@@ -18,7 +21,7 @@ wind_risk
  ├── LICENSE
  ├── .gitignore
  └── README.md
-
+```
 ----------------------------------------------------------------------------------------------------
 ## Using Mamba to download datasets:
 
